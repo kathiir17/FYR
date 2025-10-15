@@ -111,3 +111,16 @@ X_rec = Xn_rec * std + mu
 recon_mse = np.mean((Xn - Xn_rec)**2, axis=1)
 print("Mean MSE:", recon_mse.mean())
 
+hist = auto.history.history
+
+# 1. loss vs epoch
+plt.figure()
+plt.plot(hist['loss'], label='train loss')
+plt.plot(hist['val_loss'], label='val loss')
+plt.ylim((0,1))
+plt.xlabel('Epoch')
+plt.ylabel('MSE Loss')
+plt.legend()
+plt.title('Training vs Validation Loss')
+plt.show()
+
